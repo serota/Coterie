@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <ScrollViewer>
+            <TextBlock x:Name="Out" HorizontalAlignment="Stretch" Margin= "5,5,5,5" TextWrapping="Wrap" VerticalAlignment="Stretch" />
+        </ScrollViewer>
     </Grid>
 </Window>
