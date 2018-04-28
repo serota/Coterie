@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Coterie
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EditFaction.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditFaction : Window
     {
-        public MainWindow()
+        public EditFaction()
         {
             InitializeComponent();
         }

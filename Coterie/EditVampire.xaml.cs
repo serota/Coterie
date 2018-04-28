@@ -15,13 +15,14 @@ using System.Windows.Shapes;
 namespace Coterie
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for NewVampire.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditVampire : Window
     {
-        public MainWindow()
+        public EditVampire()
         {
             InitializeComponent();
+
         }
     }
 }
