@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
+    [Serializable]
     class Mortal : Character {
         public Mortal() : base () {
             splat = "mortal";

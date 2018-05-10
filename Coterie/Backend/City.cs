@@ -5,9 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    static class City {
+    [Serializable]
+    public class City {
         //this is the user session
-        public static List<Character> characters = new List<Character>();
-        public static List<Faction> factions = new List<Faction>();
+        private List<Character> characters;
+        private List<Faction> factions;
+
+        public List<Character> Characters {
+            get {
+                return characters;
+            }
+        }
+        public List<Faction> Factions {
+            get {
+                return factions;
+            }
+        }
+
+        public City() {
+            characters = new List<Character>();
+            factions = new List<Faction>();
+        }
     }
 }

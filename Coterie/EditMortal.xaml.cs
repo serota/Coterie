@@ -36,7 +36,7 @@ namespace Coterie {
                 mortal = new Mortal();
             }
             else {
-                mortal = (Mortal)City.characters[whichMortal];
+                mortal = (Mortal)parent.City.Characters[whichMortal];
                 mortalWindow.Title = mortal.Name;
             }
 
@@ -99,10 +99,10 @@ namespace Coterie {
             }
 
             if(whichMortal < 0) {
-                City.characters.Add(mortal);
+                parent.City.Characters.Add(mortal);
             }
             else {
-                City.characters[whichMortal] = mortal;
+                parent.City.Characters[whichMortal] = mortal;
             }
 
             parent.soil();

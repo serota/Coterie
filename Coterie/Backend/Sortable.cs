@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    abstract class Sortable {
+    [Serializable]
+    public abstract class Sortable {
         private static uint nextID = 0;
 
         private uint id;

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    class Role {
+    [Serializable]
+    public class Role {
         private string name;
 
         private List<Character> members;
@@ -22,10 +23,13 @@ namespace Coterie.Backend {
             }
         }
 
-        public Role(string name) {
-            this.name = name;
-
+        public Role() {
+            name = "";
             members = new List<Character>();
+        }
+
+        public Role(string name) : this() {
+            this.name = name;
         }
 
         public override string ToString() {

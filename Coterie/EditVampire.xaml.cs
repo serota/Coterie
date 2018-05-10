@@ -39,7 +39,7 @@ namespace Coterie {
                 vampire = new Vampire();
             }
             else {
-                vampire = (Vampire)City.characters[whichVampire];
+                vampire = (Vampire)parent.City.Characters[whichVampire];
                 vampireWindow.Title = vampire.Name;
             }
 
@@ -105,10 +105,10 @@ namespace Coterie {
             }
 
             if(whichVampire < 0) {
-                City.characters.Add(vampire);
+                parent.City.Characters.Add(vampire);
             }
             else {
-                City.characters[whichVampire] = vampire;
+                parent.City.Characters[whichVampire] = vampire;
             }
 
             parent.soil();

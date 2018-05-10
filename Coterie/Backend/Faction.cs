@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    class Faction : Sortable {
+    [Serializable]
+    public class Faction : Sortable {
         private string description;
 
         private List<Role> roles;
@@ -36,7 +37,7 @@ namespace Coterie.Backend {
         }
     }
 
-    enum Clan {
+    public enum Clan {
         None,
         Daeva,
         Gangrel,
@@ -47,7 +48,7 @@ namespace Coterie.Backend {
         Length
     }
 
-    enum Coven {
+    public enum Coven {
         None,
         Carthians,
         Crones,

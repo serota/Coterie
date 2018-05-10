@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    class Vampire : Character {
+    [Serializable]
+    public class Vampire : Character {
         private Clan clan;
         private Coven covenant;
 

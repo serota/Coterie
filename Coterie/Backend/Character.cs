@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    abstract class Character : Sortable {
+    [Serializable]
+    public abstract class Character : Sortable {
         protected string player,
             portraitPath,
             concept,

@@ -11,36 +11,62 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace Coterie {
     using Backend;
-    using static Backend.City;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        string fileName;
+        private City city;
+        string sessionName;
         bool dirty;
+        string file;
+
+        public City City {
+            get {
+                return city;
+            }
+        }
 
         public MainWindow() {
+            city = new City();
+
             InitializeComponent();
 
-            fileName = "New Coterie";
+            sessionName = "New Coterie";
             dirty = false;
+            file = "";
 
-            characterList.ItemsSource = characters;
-            factionList.ItemsSource = factions;
+            characterList.ItemsSource = city.Characters;
+            factionList.ItemsSource = city.Factions;
 
-            factions.Add(new Faction("City"));
+            city.Factions.Add(new Faction("City"));
 
             for (var i = 1; i < (int)Clan.Length; i++) {
-                factions.Add(new Faction(((Clan)i).ToString()));
+                city.Factions.Add(new Faction(((Clan)i).ToString()));
             }
 
             for (var i = 1; i < (int)Coven.Length; i++) {
-                factions.Add(new Faction(((Coven)i).ToString()));
+                city.Factions.Add(new Faction(((Coven)i).ToString()));
             }
 
+            refresh();
+        }
+
+        private void writeToFile() {
+           //TODO: implement save
+
+            dirty = false;
+            refresh();
+        }
+
+        private void readFromFile() {
+            //TODO: implement load
+
+            dirty = false;
             refresh();
         }
 
@@ -49,10 +75,10 @@ namespace Coterie {
             factionList.Items.Refresh();
 
             if(dirty) {
-                coterieWindow.Title = $"Coterie - {fileName} *";
+                coterieWindow.Title = $"Coterie - {sessionName} *";
             }
             else {
-                coterieWindow.Title = $"Coterie - {fileName}";
+                coterieWindow.Title = $"Coterie - {sessionName}";
             }
         }
 
@@ -75,8 +101,8 @@ namespace Coterie {
                 return;
             }
 
-            if (MessageBox.Show($"Are you sure you want to delete {characters[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
-                characters.RemoveAt(i);
+            if (MessageBox.Show($"Are you sure you want to delete {city.Characters[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
+                city.Characters.RemoveAt(i);
                 soil();
                 refresh();
             }
@@ -93,8 +119,8 @@ namespace Coterie {
                 return;
             }
 
-            if (MessageBox.Show($"Are you sure you want to delete {factions[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
-                factions.RemoveAt(i);
+            if (MessageBox.Show($"Are you sure you want to delete {city.Factions[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
+                city.Factions.RemoveAt(i);
                 soil();
                 refresh();
             }
@@ -107,7 +133,7 @@ namespace Coterie {
                 return;
             }
 
-            switch(characters[i].Splat) {
+            switch(city.Characters[i].Splat) {
                 case "vampire":
                     new EditVampire(this, i).ShowDialog();
                     break;
@@ -132,10 +158,10 @@ namespace Coterie {
         private void characterSort_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             switch(characterSort.SelectedIndex) {
                 case 0:
-                    characters.Sort(Sortable.byID);
+                    city.Characters.Sort(Sortable.byID);
                     break;
                 case 1:
-                    characters.Sort(Sortable.byName);
+                    city.Characters.Sort(Sortable.byName);
                     break;
                 default:
                     break;
@@ -147,10 +173,10 @@ namespace Coterie {
         private void factionSort_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             switch (factionSort.SelectedIndex) {
                 case 0:
-                    factions.Sort(Sortable.byID);
+                    city.Factions.Sort(Sortable.byID);
                     break;
                 case 1:
-                    factions.Sort(Sortable.byName);
+                    city.Factions.Sort(Sortable.byName);
                     break;
                 default:
                     break;
@@ -160,15 +186,61 @@ namespace Coterie {
         }
 
         private void openMenu_Click(object sender, RoutedEventArgs e) {
-            //TODO: Save system
+            if (dirty) {
+                switch (MessageBox.Show($"Save changes before opening a new file?", "Open", MessageBoxButton.YesNoCancel)) {
+                    case MessageBoxResult.Yes:
+                        if (!save()) {
+                            return;
+                        }
+                        break;
+                    case MessageBoxResult.Cancel:
+                        return;
+                    default:
+                        break;
+                }
+            }
+
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Coterie city files (*.vcity)|*.vcity";
+
+            if (open.ShowDialog() == true) {
+                file = open.FileName;
+                sessionName = file;
+                readFromFile();
+            }
         }
 
         private void saveMenu_Click(object sender, RoutedEventArgs e) {
-            //TODO: Save system
+            save();
         }
 
         private void saveAsMenu_Click(object sender, RoutedEventArgs e) {
-            //TODO: Save system
+            saveAs();
+        }
+
+        private bool save() {
+            if (file == "") {
+                return saveAs();
+            }
+            else {
+                writeToFile();
+                return true;
+            }
+        }
+
+        private bool saveAs() {
+            SaveFileDialog save = new SaveFileDialog();
+            save.Filter = "Coterie city files (*.vcity)|*.vcity";
+
+            if (save.ShowDialog() == true) {
+                file = save.FileName;
+                sessionName = file;
+                writeToFile();
+
+                return true;
+            }
+
+            return false;
         }
 
         private void exitMenu_Click(object sender, RoutedEventArgs e) {
@@ -179,7 +251,9 @@ namespace Coterie {
             if(dirty) {
                 switch(MessageBox.Show($"Save changes before closing?", "Exit", MessageBoxButton.YesNoCancel)) {
                     case MessageBoxResult.Yes:
-                        //TODO: Save system
+                        if(!save()) {
+                            e.Cancel = true;
+                        }
                         break;
                     case MessageBoxResult.Cancel:
                         e.Cancel = true;

@@ -36,7 +36,7 @@ namespace Coterie {
                 faction = new Faction();
             }
             else {
-                faction = City.factions[whichFaction];
+                faction = parent.City.Factions[whichFaction];
                 factionWindow.Title = faction.Name;
             }
 
@@ -53,7 +53,7 @@ namespace Coterie {
         private void newRoleButton_Click(object sender, RoutedEventArgs e) {
             NewRole messageBox = new NewRole();
 
-            if((bool)messageBox.ShowDialog()) {
+            if(messageBox.ShowDialog() == true) {
                 faction.Roles.Add(new Role(messageBox.RoleName));
             }
 
@@ -74,7 +74,7 @@ namespace Coterie {
         private void refresh() {
             if(currentRole >= 0 && currentRole < faction.Roles.Count) {
                                                             //1-MEMBERS
-                nonmemberList.ItemsSource = City.characters.Except<Character>(faction.Roles[currentRole].Members);
+                nonmemberList.ItemsSource = parent.City.Characters.Except<Character>(faction.Roles[currentRole].Members);
                 //this doesn't update dynamically; it needs to be recalculated every refresh
             }
 
@@ -89,10 +89,10 @@ namespace Coterie {
             }
 
             if (whichFaction < 0) {
-                City.factions.Add(faction);
+                parent.City.Factions.Add(faction);
             }
             else {
-                City.factions[whichFaction] = faction;
+                parent.City.Factions[whichFaction] = faction;
             }
 
             parent.soil();
@@ -118,7 +118,7 @@ namespace Coterie {
             if (currentRole >= 0 && currentRole < faction.Roles.Count) {
                 memberList.ItemsSource = faction.Roles[currentRole].Members;
                                                             //1-MEMBERS
-                nonmemberList.ItemsSource = City.characters.Except<Character>(faction.Roles[currentRole].Members);
+                nonmemberList.ItemsSource = parent.City.Characters.Except<Character>(faction.Roles[currentRole].Members);
             }
             else {
                 memberList.ItemsSource = null;
@@ -148,7 +148,7 @@ namespace Coterie {
                             //add to the list of MEMBERS
                     faction.Roles[currentRole].Members.Add
                             //from the list of 1-MEMBERS
-                        ((City.characters.Except<Character>(faction.Roles[currentRole].Members))
+                        ((parent.City.Characters.Except<Character>(faction.Roles[currentRole].Members))
                             //at the selected index
                         .ElementAt<Character>(nonmemberList.SelectedIndex));
                 }

@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    class Trait {
+    [Serializable]
+    public class Trait {
         private string name;
         private int dots;
         //private List<string> notes;
@@ -27,10 +28,14 @@ namespace Coterie.Backend {
             }
         }
 
-        public Trait(string name) {
-            this.name = name;
+        public Trait() {
+            name = "";
             dots = 0;
             //notes = new List<string>();
+        }
+
+        public Trait(string name) : this() {
+            this.name = name;
         }
     }
 
