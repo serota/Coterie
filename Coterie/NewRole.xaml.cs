@@ -21,12 +21,18 @@ namespace Coterie {
 
         public string RoleName {
             get {
+                if(roleName == "")
+                {
+                    return "Untitled";
+                }
                 return roleName;
             }
         }
 
         public NewRole() {
             InitializeComponent();
+
+            roleName = "";
 
             nameField.Focus();
         }
