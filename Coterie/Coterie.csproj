@@ -58,6 +58,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="EditMortal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,6 +84,9 @@
     <Compile Include="Backend\Vampire.cs" />
     <Compile Include="EditFaction.xaml.cs">
       <DependentUpon>EditFaction.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditMortal.xaml.cs">
+      <DependentUpon>EditMortal.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -124,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="vampire silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mortal silhouette.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

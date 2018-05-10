@@ -40,6 +40,7 @@ namespace Coterie {
             }
             else {
                 vampire = (Vampire)City.characters[whichVampire];
+                vampireWindow.Title = vampire.Name;
             }
 
             nameField.Text = vampire.Name;

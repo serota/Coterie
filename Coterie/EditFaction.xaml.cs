@@ -33,6 +33,7 @@ namespace Coterie {
             }
             else {
                 faction = City.factions[whichFaction];
+                factionWindow.Title = faction.Name;
             }
 
             nameField.Focus();

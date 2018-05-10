@@ -33,11 +33,11 @@ namespace Coterie {
 
             factions.Add(new Faction("City"));
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 1; i < (int)Clan.Length; i++) {
                 factions.Add(new Faction(((Clan)i).ToString()));
             }
 
-            for (var i = 0; i < 5; i++) {
+            for (var i = 1; i < (int)Coven.Length; i++) {
                 factions.Add(new Faction(((Coven)i).ToString()));
             }
 
@@ -65,7 +65,7 @@ namespace Coterie {
         }
 
         private void newMortalButton_Click(object sender, RoutedEventArgs e) {
-            //new EditMortal(this, -1).ShowDialog();
+            new EditMortal(this, -1).ShowDialog();
         }
 
         private void deleteCharacterButton_Click(object sender, RoutedEventArgs e) {
@@ -112,7 +112,7 @@ namespace Coterie {
                     new EditVampire(this, i).ShowDialog();
                     break;
                 case "mortal":
-                    //new EditMortal(this, i).ShowDialog();
+                    new EditMortal(this, i).ShowDialog();
                     break;
                 default:
                     break;
