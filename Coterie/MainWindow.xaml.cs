@@ -83,7 +83,8 @@ namespace Coterie {
         }
 
         public void soil() {
-            dirty = true;
+            //TODO: re-enable soil when saving works
+            //dirty = true;
         }
 
         private void newVampireButton_Click(object sender, RoutedEventArgs e) {
