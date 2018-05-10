@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Coterie.Backend {
     class Vampire : Character {
+        private Clan clan;
+        private Coven covenant;
 
         public Vampire() : base() {
-            
-        }
+            potency = new Trait("Blood Potency") { dots = 1 };
+            humanity = new Trait("Humanity") { dots = 7 };
 
-        public override string ToString() {
-            return attributes[1].name;
+            clan = Clan.None;
+            covenant = Coven.None;
         }
     }
 }
