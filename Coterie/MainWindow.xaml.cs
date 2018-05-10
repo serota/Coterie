@@ -56,7 +56,7 @@ namespace Coterie {
             }
         }
 
-        public void makeDirty() {
+        public void soil() {
             dirty = true;
         }
 
@@ -77,7 +77,7 @@ namespace Coterie {
 
             if (MessageBox.Show($"Are you sure you want to delete {characters[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
                 characters.RemoveAt(i);
-                makeDirty();
+                soil();
                 refresh();
             }
         }
@@ -95,7 +95,7 @@ namespace Coterie {
 
             if (MessageBox.Show($"Are you sure you want to delete {factions[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
                 factions.RemoveAt(i);
-                makeDirty();
+                soil();
                 refresh();
             }
         }

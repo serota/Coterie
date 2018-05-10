@@ -20,6 +20,12 @@ namespace Coterie.Backend {
             }
         }
 
+        public uint Id {
+            get {
+                return id;
+            }
+        }
+
         protected Sortable() {
             id = nextID++;
             name = "";
@@ -44,5 +50,9 @@ namespace Coterie.Backend {
         public override string ToString() {
             return name;
         }
+
+        /*public override bool Equals(Object s) {
+            return id == ((Sortable)s).id;
+        }*/
     }
 }

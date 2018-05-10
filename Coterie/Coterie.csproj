@@ -66,6 +66,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="NewRole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TestConsole.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -78,7 +82,7 @@
     <Compile Include="Backend\City.cs" />
     <Compile Include="Backend\Faction.cs" />
     <Compile Include="Backend\Mortal.cs" />
-    <Compile Include="Backend\Defaults.cs" />
+    <Compile Include="Backend\Role.cs" />
     <Compile Include="Backend\Sortable.cs" />
     <Compile Include="Backend\Trait.cs" />
     <Compile Include="Backend\Vampire.cs" />
@@ -90,6 +94,9 @@
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="NewRole.xaml.cs">
+      <DependentUpon>NewRole.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestConsole.xaml.cs">
       <DependentUpon>TestConsole.xaml</DependentUpon>

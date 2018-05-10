@@ -111,7 +111,7 @@ namespace Coterie {
                 City.characters[whichVampire] = vampire;
             }
 
-            parent.makeDirty();
+            parent.soil();
             parent.refresh();
             this.Close();
         }

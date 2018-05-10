@@ -105,7 +105,7 @@ namespace Coterie {
                 City.characters[whichMortal] = mortal;
             }
 
-            parent.makeDirty();
+            parent.soil();
             parent.refresh();
             this.Close();
         }
