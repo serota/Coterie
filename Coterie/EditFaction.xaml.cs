@@ -61,21 +61,21 @@ namespace Coterie {
         }
 
         private void deleteRoleButton_Click(object sender, RoutedEventArgs e) {
-            int i = roleList.SelectedIndex;
-
-            if (i < 0) {
+            if (currentRole < 0) {
                 return;
             }
 
-            if (MessageBox.Show($"Are you sure you want to delete {faction.Roles[i].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
-                faction.Roles.RemoveAt(i);
+            if (MessageBox.Show($"Are you sure you want to delete {faction.Roles[currentRole].Name}?", "Delete", MessageBoxButton.YesNo) == MessageBoxResult.Yes) {
+                faction.Roles.RemoveAt(currentRole);
                 refresh();
             }
         }
 
         private void refresh() {
             if(currentRole >= 0 && currentRole < faction.Roles.Count) {
+                                                            //1-MEMBERS
                 nonmemberList.ItemsSource = City.characters.Except<Character>(faction.Roles[currentRole].Members);
+                //this doesn't update dynamically; it needs to be recalculated every refresh
             }
 
             roleList.Items.Refresh();
@@ -117,6 +117,7 @@ namespace Coterie {
 
             if (currentRole >= 0 && currentRole < faction.Roles.Count) {
                 memberList.ItemsSource = faction.Roles[currentRole].Members;
+                                                            //1-MEMBERS
                 nonmemberList.ItemsSource = City.characters.Except<Character>(faction.Roles[currentRole].Members);
             }
             else {
@@ -136,10 +137,20 @@ namespace Coterie {
         private void transferButton_Click(object sender, RoutedEventArgs e) {
             if (currentRole >= 0 && currentRole < faction.Roles.Count) {
                 if ((string)transferButton.Content == ">") {
-                    faction.Roles[currentRole].Members.Remove(faction.Roles[currentRole].Members[memberList.SelectedIndex]);
+                            //remove from the list of MEMBERS
+                    faction.Roles[currentRole].Members.Remove
+                            //an existing entry
+                        (faction.Roles[currentRole].Members
+                            //at the selected index
+                        [memberList.SelectedIndex]);
                 }
                 else if ((string)transferButton.Content == "<") {
-                    faction.Roles[currentRole].Members.Add((City.characters.Except<Character>(faction.Roles[currentRole].Members)).ElementAt<Character>(nonmemberList.SelectedIndex));
+                            //add to the list of MEMBERS
+                    faction.Roles[currentRole].Members.Add
+                            //from the list of 1-MEMBERS
+                        ((City.characters.Except<Character>(faction.Roles[currentRole].Members))
+                            //at the selected index
+                        .ElementAt<Character>(nonmemberList.SelectedIndex));
                 }
             }
 
