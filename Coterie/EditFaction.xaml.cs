@@ -12,16 +12,53 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Coterie
-{
+namespace Coterie {
+    using Backend;
     /// <summary>
     /// Interaction logic for EditFaction.xaml
     /// </summary>
-    public partial class EditFaction : Window
-    {
-        public EditFaction()
-        {
+    public partial class EditFaction : Window {
+        Faction faction;
+        int whichFaction;
+        MainWindow parent;
+
+        public EditFaction(MainWindow parent, int whichFaction) {
             InitializeComponent();
+
+            this.whichFaction = whichFaction;
+            this.parent = parent;
+
+            if (whichFaction < 0) {
+                faction = new Faction();
+            }
+            else {
+                faction = City.factions[whichFaction];
+            }
+
+            nameField.Focus();
+
+            nameField.Text = faction.Name;
+        }
+
+        private void closeButton_Click(object sender, RoutedEventArgs e) {
+            if (faction.Name == "") {
+                faction.Name = "Untitled";
+            }
+
+            if (whichFaction < 0) {
+                City.factions.Add(faction);
+            }
+            else {
+                City.factions[whichFaction] = faction;
+            }
+
+            parent.makeDirty();
+            parent.refresh();
+            this.Close();
+        }
+
+        private void nameField_TextChanged(object sender, TextChangedEventArgs e) {
+            faction.Name = nameField.Text;
         }
     }
 }

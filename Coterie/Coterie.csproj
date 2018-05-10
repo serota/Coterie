@@ -71,8 +71,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Backend\Character.cs" />
+    <Compile Include="Backend\City.cs" />
+    <Compile Include="Backend\Faction.cs" />
     <Compile Include="Backend\Mortal.cs" />
     <Compile Include="Backend\Defaults.cs" />
+    <Compile Include="Backend\Sortable.cs" />
     <Compile Include="Backend\Trait.cs" />
     <Compile Include="Backend\Vampire.cs" />
     <Compile Include="EditFaction.xaml.cs">

@@ -5,110 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coterie"
         mc:Ignorable="d"
-        Title="New Vampire" Height="527.804" Width="800">
+        Title="New Vampire" Height="527.804" Width="800"
+        ResizeMode="NoResize">
     <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="nameField_TextChanged" TabIndex="0"/>
         <Label Content="Mask" HorizontalAlignment="Left" Margin="135,4,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="135,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="maskField" HorizontalAlignment="Left" Height="23" Margin="135,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1" TextChanged="maskField_TextChanged"/>
         <Label Content="Dirge" HorizontalAlignment="Left" Margin="135,54,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="135,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="dirgeField" HorizontalAlignment="Left" Height="23" Margin="135,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="5" TextChanged="dirgeField_TextChanged"/>
         <Label Content="Clan" HorizontalAlignment="Left" Margin="260,4,0,0" VerticalAlignment="Top"/>
         <Label Content="Covenant" HorizontalAlignment="Left" Margin="260,54,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="260,80,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="covenBox" HorizontalAlignment="Left" Margin="260,80,0,0" VerticalAlignment="Top" Width="120" TabIndex="6" SelectionChanged="covenBox_SelectionChanged">
+            <!--
             <ComboBoxItem>Carthian Movement</ComboBoxItem>
             <ComboBoxItem>Circle of the Crone</ComboBoxItem>
             <ComboBoxItem>Invictus</ComboBoxItem>
             <ComboBoxItem>Lancea et Sanctum</ComboBoxItem>
             <ComboBoxItem>Ordo Dracul</ComboBoxItem>
+            -->
         </ComboBox>
-        <ComboBox HorizontalAlignment="Left" Margin="260,30,0,0" VerticalAlignment="Top" Width="120">
+        <ComboBox x:Name="clanBox" HorizontalAlignment="Left" Margin="260,30,0,0" VerticalAlignment="Top" Width="120" TabIndex="2" SelectionChanged="clanBox_SelectionChanged">
+            <!--
             <ComboBoxItem>Daeva</ComboBoxItem>
             <ComboBoxItem>Gangrel</ComboBoxItem>
             <ComboBoxItem>Mekhet</ComboBoxItem>
             <ComboBoxItem>Nosferatu</ComboBoxItem>
             <ComboBoxItem>Ventrue</ComboBoxItem>
+            -->
         </ComboBox>
         <Label Content="Player" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Slider HorizontalAlignment="Left" Margin="86,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <TextBox x:Name="playerField" HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="4" TextChanged="playerField_TextChanged"/>
+        <Slider x:Name="intelligenceDots" HorizontalAlignment="Left" Margin="86,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="8" ValueChanged="intelligenceDots_ValueChanged"/>
         <Label Content="Intelligence" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,153,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="witsDots" HorizontalAlignment="Left" Margin="86,153,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="11" ValueChanged="witsDots_ValueChanged"/>
         <Label Content="Wits" HorizontalAlignment="Left" Margin="10,142,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,184,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="resolveDots" HorizontalAlignment="Left" Margin="86,184,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="14" ValueChanged="resolveDots_ValueChanged"/>
         <Label Content="Resolve" HorizontalAlignment="Left" Margin="10,173,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="strengthDots" HorizontalAlignment="Left" Margin="246,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="9" ValueChanged="strengthDots_ValueChanged"/>
         <Label Content="Strength" HorizontalAlignment="Left" Margin="170,111,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,153,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="dexterityDots" HorizontalAlignment="Left" Margin="246,153,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="12" ValueChanged="dexterityDots_ValueChanged"/>
         <Label Content="Dexterity" HorizontalAlignment="Left" Margin="170,142,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,184,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="staminaDots" HorizontalAlignment="Left" Margin="246,184,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="15" ValueChanged="staminaDots_ValueChanged"/>
         <Label Content="Stamina" HorizontalAlignment="Left" Margin="170,173,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="presenceDots" HorizontalAlignment="Left" Margin="407,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="10" ValueChanged="presenceDots_ValueChanged"/>
         <Label Content="Presence" HorizontalAlignment="Left" Margin="331,111,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,153,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="manipulationDots" HorizontalAlignment="Left" Margin="407,153,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="13" ValueChanged="manipulationDots_ValueChanged"/>
         <Label Content="Manipulation" HorizontalAlignment="Left" Margin="331,142,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,184,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Value="1" Minimum="1"/>
+        <Slider x:Name="composureDots" HorizontalAlignment="Left" Margin="407,184,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="16" ValueChanged="composureDots_ValueChanged"/>
         <Label Content="Composure" HorizontalAlignment="Left" Margin="331,173,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,238,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="academicsDots" HorizontalAlignment="Left" Margin="86,238,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="17" ValueChanged="academicsDots_ValueChanged"/>
         <Label Content="Academics" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,269,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="computerDots" HorizontalAlignment="Left" Margin="86,269,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="20" ValueChanged="computerDots_ValueChanged"/>
         <Label Content="Computer" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,300,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="craftsDots" HorizontalAlignment="Left" Margin="86,300,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="23" ValueChanged="craftsDots_ValueChanged"/>
         <Label Content="Crafts" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,238,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="athleticsDots" HorizontalAlignment="Left" Margin="246,238,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="18" ValueChanged="athleticsDots_ValueChanged"/>
         <Label Content="Athletics" HorizontalAlignment="Left" Margin="170,227,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,269,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="brawlDots" HorizontalAlignment="Left" Margin="246,269,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="21" ValueChanged="brawlDots_ValueChanged"/>
         <Label Content="Brawl" HorizontalAlignment="Left" Margin="170,258,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,300,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="driveDots" HorizontalAlignment="Left" Margin="246,300,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="24" ValueChanged="driveDots_ValueChanged"/>
         <Label Content="Drive" HorizontalAlignment="Left" Margin="170,289,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,238,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="animalKenDots" HorizontalAlignment="Left" Margin="407,238,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="19" ValueChanged="animalKenDots_ValueChanged"/>
         <Label Content="Animal Ken" HorizontalAlignment="Left" Margin="331,227,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,269,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="empathyDots" HorizontalAlignment="Left" Margin="407,269,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="22" ValueChanged="empathyDots_ValueChanged"/>
         <Label Content="Empathy" HorizontalAlignment="Left" Margin="331,258,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,300,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="expressionDots" HorizontalAlignment="Left" Margin="407,300,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="25" ValueChanged="expressionDots_ValueChanged"/>
         <Label Content="Expression" HorizontalAlignment="Left" Margin="331,289,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,330,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="investigationDots" HorizontalAlignment="Left" Margin="86,330,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="26" ValueChanged="investigationDots_ValueChanged"/>
         <Label Content="Investigation" HorizontalAlignment="Left" Margin="10,319,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,361,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="medicineDots" HorizontalAlignment="Left" Margin="86,361,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="29" ValueChanged="medicineDots_ValueChanged"/>
         <Label Content="Medicine" HorizontalAlignment="Left" Margin="10,350,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,392,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="occultDots" HorizontalAlignment="Left" Margin="86,392,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="32" ValueChanged="occultDots_ValueChanged"/>
         <Label Content="Occult" HorizontalAlignment="Left" Margin="10,381,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,330,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="firearmsDots" HorizontalAlignment="Left" Margin="246,330,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="27" ValueChanged="firearmsDots_ValueChanged"/>
         <Label Content="Firearms" HorizontalAlignment="Left" Margin="170,319,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,361,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="larcenyDots" HorizontalAlignment="Left" Margin="246,361,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="30" ValueChanged="larcenyDots_ValueChanged"/>
         <Label Content="Larceny" HorizontalAlignment="Left" Margin="170,350,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,392,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="stealthDots" HorizontalAlignment="Left" Margin="246,392,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="33" ValueChanged="stealthDots_ValueChanged"/>
         <Label Content="Stealth" HorizontalAlignment="Left" Margin="170,381,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,330,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="intimidationDots" HorizontalAlignment="Left" Margin="407,330,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="28" ValueChanged="intimidationDots_ValueChanged"/>
         <Label Content="Intimidation" HorizontalAlignment="Left" Margin="331,319,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,361,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="persuasionDots" HorizontalAlignment="Left" Margin="407,361,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="31" ValueChanged="persuasionDots_ValueChanged"/>
         <Label Content="Persuasion" HorizontalAlignment="Left" Margin="331,350,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,392,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="socializeDots" HorizontalAlignment="Left" Margin="407,392,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="34" ValueChanged="socializeDots_ValueChanged"/>
         <Label Content="Socialize" HorizontalAlignment="Left" Margin="331,381,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,424,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="politicsDots" HorizontalAlignment="Left" Margin="86,424,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="35" ValueChanged="politicsDots_ValueChanged"/>
         <Label Content="Politics" HorizontalAlignment="Left" Margin="10,413,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="86,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="scienceDots" HorizontalAlignment="Left" Margin="86,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="38" ValueChanged="scienceDots_ValueChanged"/>
         <Label Content="Science" HorizontalAlignment="Left" Margin="10,444,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,424,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="survivalDots" HorizontalAlignment="Left" Margin="246,424,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="36" ValueChanged="survivalDots_ValueChanged"/>
         <Label Content="Survival" HorizontalAlignment="Left" Margin="170,413,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="246,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="weaponryDots" HorizontalAlignment="Left" Margin="246,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="39" ValueChanged="weaponryDots_ValueChanged"/>
         <Label Content="Weaponry" HorizontalAlignment="Left" Margin="170,444,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,424,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="streetwiseDots" HorizontalAlignment="Left" Margin="407,424,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="37" ValueChanged="streetwiseDots_ValueChanged"/>
         <Label Content="Streetwise" HorizontalAlignment="Left" Margin="331,413,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="407,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft"/>
+        <Slider x:Name="subterfugeDots" HorizontalAlignment="Left" Margin="407,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="40" ValueChanged="subterfugeDots_ValueChanged"/>
         <Label Content="Subterfuge" HorizontalAlignment="Left" Margin="331,444,0,0" VerticalAlignment="Top"/>
         <Border Height="200" Width="290" BorderThickness="1" BorderBrush="Black" Margin="492,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Image Source="vampire silhouette.png"/>
+            <Image x:Name="portraitBox" Source="vampire silhouette.png"/>
         </Border>
         <Label Content="Concept" HorizontalAlignment="Left" Margin="492,212,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="492,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205"/>
+        <TextBox x:Name="conceptField" HorizontalAlignment="Left" Height="23" Margin="492,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" TabIndex="41" TextChanged="conceptField_TextChanged"/>
         <Label Content="Biography" HorizontalAlignment="Left" Margin="492,263,0,0" VerticalAlignment="Top"/>
-        <TextBox AcceptsReturn="True" HorizontalAlignment="Left" Height="188" Margin="492,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="290"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="188" Margin="492,289,0,0" VerticalAlignment="Top" Width="290">
+            <TextBox x:Name="biographyField" AcceptsReturn="True" TextWrapping="Wrap" TabIndex="42" TextChanged="biographyField_TextChanged"/>
+        </ScrollViewer>
         <Label Content="Blood Potency" HorizontalAlignment="Left" Margin="385,4,0,0" VerticalAlignment="Top"/>
         <Label Content="Humanity" HorizontalAlignment="Left" Margin="385,54,0,0" VerticalAlignment="Top"/>
-        <Slider HorizontalAlignment="Left" Margin="391,30,0,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="96" TickPlacement="TopLeft" Value="1" Minimum="1"/>
-        <Slider HorizontalAlignment="Left" Margin="391,80,0,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="96" TickPlacement="TopLeft" Value="7" Minimum="1"/>
-        <Button Content="Save &amp; Close" HorizontalAlignment="Left" Margin="702,238,0,0" VerticalAlignment="Top" Width="80"/>
+        <Slider x:Name="potencyDots" HorizontalAlignment="Left" Margin="391,30,0,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="96" TickPlacement="TopLeft" Minimum="1" TabIndex="3" ValueChanged="potencyDots_ValueChanged"/>
+        <Slider x:Name="humanityDots" HorizontalAlignment="Left" Margin="391,80,0,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="96" TickPlacement="TopLeft" Minimum="1" TabIndex="7" ValueChanged="humanityDots_ValueChanged"/>
+        <Button x:Name="closeButton" Content="Save &amp; Close" HorizontalAlignment="Left" Margin="702,238,0,0" VerticalAlignment="Top" Width="80" Click="closeButton_Click" TabIndex="43" IsDefault="True"/>
 
     </Grid>
 </Window>

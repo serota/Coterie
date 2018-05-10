@@ -5,10 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    struct Trait {
-        public string name;
-        public int dots;
-        //public List<string> notes;
+    class Trait {
+        private string name;
+        private int dots;
+        //private List<string> notes;
+
+        public string Name {
+            get {
+                return name;
+            }
+            set {
+                name = value;
+            }
+        }
+        public int Dots {
+            get {
+                return dots;
+            }
+            set {
+                dots = value;
+            }
+        }
 
         public Trait(string name) {
             this.name = name;

@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    class Mortal : Character {
-        public Mortal() : base () {
-            splat = "mortal";
+    class Faction : Sortable {
+        public Faction() : base() {
+        }
 
-            humanity = new Trait("Integrity") { Dots = 7 };
+        public Faction(string name) {
+            this.name = name;
         }
     }
 }

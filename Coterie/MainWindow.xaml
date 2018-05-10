@@ -1,14 +1,39 @@
-﻿<Window x:Class="Coterie.MainWindow"
+﻿<Window x:Name="coterieWindow" x:Class="Coterie.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coterie"
         mc:Ignorable="d"
-        Title="Coterie" Height="471.915" Width="583.766">
+        Title="Coterie" Height="484.173" Width="583.766"
+        ResizeMode="NoResize"
+        Closing="window_Closing">
     <Grid>
-        <ListBox HorizontalAlignment="Left" Height="350" Margin="10,44,0,0" VerticalAlignment="Top" Width="250"/>
-        <ListBox HorizontalAlignment="Left" Height="350" Margin="307,44,0,0" VerticalAlignment="Top" Width="250">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="139*"/>
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.ColumnSpan="2">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File" TabIndex="0">
+                    <!--MenuItem Header="_New"/-->
+                    <MenuItem x:Name="openMenu" Header="_Open" Click="openMenu_Click"/>
+                    <!--MenuItem Header="_Close"/-->
+                    <MenuItem x:Name="saveMenu" Header="_Save" Click="saveMenu_Click"/>
+                    <MenuItem x:Name="saveAsMenu" Header="Save _As" Click="saveAsMenu_Click"/>
+                    <MenuItem x:Name="exitMenu" Header="E_xit" Click="exitMenu_Click"/>
+                </MenuItem>
+                <!--
+                <MenuItem Header="_Help">
+                    <MenuItem Header="_About"/>
+                </MenuItem>
+                -->
+            </Menu>
+            <StackPanel/>
+        </DockPanel>
+        <ListBox x:Name="characterList" HorizontalAlignment="Left" Height="350" Margin="10,61,0,0" VerticalAlignment="Top" Width="250" MouseDoubleClick="characterList_DoubleClick" Grid.ColumnSpan="2" TabIndex="2"/>
+        <ListBox x:Name="factionList" HorizontalAlignment="Left" Height="350" Margin="147.822,61,0,0" VerticalAlignment="Top" Width="250" MouseDoubleClick="factionList_DoubleClick" Grid.Column="1" TabIndex="7">
+            <!--
             <ListBoxItem>City</ListBoxItem>
             <ListBoxItem>Daeva</ListBoxItem>
             <ListBoxItem>Gangrel</ListBoxItem>
@@ -20,24 +45,25 @@
             <ListBoxItem>Invictus</ListBoxItem>
             <ListBoxItem>Lancea et Sanctum</ListBoxItem>
             <ListBoxItem>Ordo Dracul</ListBoxItem>
+            -->
         </ListBox>
-        <Label Content="Characters" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sort:" HorizontalAlignment="Left" Margin="131,13,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="170,17,0,0" VerticalAlignment="Top" Width="90" SelectedIndex="0">
+        <Label Content="Characters" HorizontalAlignment="Left" Margin="10,30,0,0" VerticalAlignment="Top"/>
+        <Label Content="Sort:" HorizontalAlignment="Left" Margin="131,30,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="characterSort" HorizontalAlignment="Left" Margin="10.822,34,0,0" VerticalAlignment="Top" Width="90" SelectedIndex="0" SelectionChanged="characterSort_SelectionChanged" Grid.Column="1" TabIndex="1">
             <ComboBoxItem>Created</ComboBoxItem>
             <ComboBoxItem>Name</ComboBoxItem>
         </ComboBox>
-        <Label Content="Factions" HorizontalAlignment="Left" Margin="307,13,0,0" VerticalAlignment="Top"/>
-        <Label Content="Sort:" HorizontalAlignment="Left" Margin="428,13,0,0" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" Margin="467,17,0,0" VerticalAlignment="Top" Width="90" SelectedIndex="0">
+        <Label Content="Factions" HorizontalAlignment="Left" Margin="147.822,30,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label Content="Sort:" HorizontalAlignment="Left" Margin="268.822,30,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <ComboBox x:Name="factionSort" HorizontalAlignment="Left" Margin="307.822,34,0,0" VerticalAlignment="Top" Width="90" SelectedIndex="0" SelectionChanged="factionSort_SelectionChanged" Grid.Column="1" TabIndex="6">
             <ComboBoxItem>Created</ComboBoxItem>
             <ComboBoxItem>Name</ComboBoxItem>
         </ComboBox>
-        <Button Content="New Vampire" HorizontalAlignment="Left" Margin="10,399,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Content="New Mortal" HorizontalAlignment="Left" Margin="95,399,0,0" VerticalAlignment="Top" Width="80"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="213,399,0,0" VerticalAlignment="Top" Width="47"/>
-        <Button Content="Delete" HorizontalAlignment="Left" Margin="510,399,0,0" VerticalAlignment="Top" Width="47"/>
-        <Button Content="New Faction" HorizontalAlignment="Left" Margin="307,399,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button x:Name="newVampireButton" Content="New Vampire" Margin="10,416,70,0" VerticalAlignment="Top" Click="newVampireButton_Click" TabIndex="3"/>
+        <Button x:Name="newMortalButton" Content="New Mortal" HorizontalAlignment="Left" Margin="95,416,0,0" VerticalAlignment="Top" Width="80" Click="newMortalButton_Click" Grid.ColumnSpan="2" TabIndex="4"/>
+        <Button x:Name="deleteCharacterButton" Content="Delete" HorizontalAlignment="Left" Margin="53.822,416,0,0" VerticalAlignment="Top" Width="47" Click="deleteCharacterButton_Click" Grid.Column="1" TabIndex="5"/>
+        <Button x:Name="deleteFactionButton" Content="Delete" HorizontalAlignment="Left" Margin="350.822,416,0,0" VerticalAlignment="Top" Width="47" Click="deleteFactionButton_Click" Grid.Column="1" TabIndex="9"/>
+        <Button x:Name="newFactionButton" Content="New Faction" HorizontalAlignment="Left" Margin="147.822,416,0,0" VerticalAlignment="Top" Width="80" Click="newFactionButton_Click" Grid.Column="1" TabIndex="8"/>
 
     </Grid>
 </Window>

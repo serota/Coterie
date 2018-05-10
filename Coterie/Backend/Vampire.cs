@@ -9,9 +9,28 @@ namespace Coterie.Backend {
         private Clan clan;
         private Coven covenant;
 
+        public Clan Clan {
+            get {
+                return clan;
+            }
+            set {
+                clan = value;
+            }
+        }
+        public Coven Covenant {
+            get {
+                return covenant;
+            }
+            set {
+                covenant = value;
+            }
+        }
+
         public Vampire() : base() {
-            potency = new Trait("Blood Potency") { dots = 1 };
-            humanity = new Trait("Humanity") { dots = 7 };
+            splat = "vampire";
+
+            potency = new Trait("Blood Potency") { Dots = 1 };
+            humanity = new Trait("Humanity") { Dots = 7 };
 
             clan = Clan.None;
             covenant = Coven.None;

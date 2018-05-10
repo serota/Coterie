@@ -4,23 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Coterie.Backend
-{
+namespace Coterie.Backend {
     enum Clan {
-        None = -1,
-        Carthians,
-        Crones,
-        Invictus,
-        Lancea,
-        Ordo
-    }
-
-    enum Coven {
-        None = -1,
+        None,
         Daeva,
         Gangrel,
         Mekhet,
         Nosferatu,
         Ventrue
+    }
+
+    enum Coven {
+        None,
+        Carthians,
+        Crones,
+        Invictus,
+        Lancea,
+        Ordo
     }
 }
