@@ -1,39 +1,19 @@
-﻿<Window x:Name="vampireWindow" x:Class="Coterie.EditVampire"
+﻿<Window x:Name="mortalWindow" x:Class="Coterie.EditMortal"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Coterie"
         mc:Ignorable="d"
-        Title="New Vampire" Height="527.804" Width="800"
+        Title="New Mortal" Height="527.804" Width="800"
         ResizeMode="NoResize">
     <Grid>
         <Label Content="Name" HorizontalAlignment="Left" Margin="10,4,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="nameField" HorizontalAlignment="Left" Height="23" Margin="10,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="nameField_TextChanged" TabIndex="0"/>
-        <Label Content="Mask" HorizontalAlignment="Left" Margin="135,4,0,0" VerticalAlignment="Top"/>
+        <Label Content="Virtue" HorizontalAlignment="Left" Margin="135,4,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="maskField" HorizontalAlignment="Left" Height="23" Margin="135,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="1" TextChanged="maskField_TextChanged"/>
-        <Label Content="Dirge" HorizontalAlignment="Left" Margin="135,54,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vice" HorizontalAlignment="Left" Margin="135,54,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="dirgeField" HorizontalAlignment="Left" Height="23" Margin="135,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="5" TextChanged="dirgeField_TextChanged"/>
-        <Label Content="Clan" HorizontalAlignment="Left" Margin="260,4,0,0" VerticalAlignment="Top"/>
-        <Label Content="Covenant" HorizontalAlignment="Left" Margin="260,54,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="covenBox" HorizontalAlignment="Left" Margin="260,80,0,0" VerticalAlignment="Top" Width="120" TabIndex="6" SelectionChanged="covenBox_SelectionChanged">
-            <!--
-            <ComboBoxItem>Carthian Movement</ComboBoxItem>
-            <ComboBoxItem>Circle of the Crone</ComboBoxItem>
-            <ComboBoxItem>Invictus</ComboBoxItem>
-            <ComboBoxItem>Lancea et Sanctum</ComboBoxItem>
-            <ComboBoxItem>Ordo Dracul</ComboBoxItem>
-            -->
-        </ComboBox>
-        <ComboBox x:Name="clanBox" HorizontalAlignment="Left" Margin="260,30,0,0" VerticalAlignment="Top" Width="120" TabIndex="2" SelectionChanged="clanBox_SelectionChanged">
-            <!--
-            <ComboBoxItem>Daeva</ComboBoxItem>
-            <ComboBoxItem>Gangrel</ComboBoxItem>
-            <ComboBoxItem>Mekhet</ComboBoxItem>
-            <ComboBoxItem>Nosferatu</ComboBoxItem>
-            <ComboBoxItem>Ventrue</ComboBoxItem>
-            -->
-        </ComboBox>
         <Label Content="Player" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="playerField" HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TabIndex="4" TextChanged="playerField_TextChanged"/>
         <Slider x:Name="intelligenceDots" HorizontalAlignment="Left" Margin="86,122,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" Minimum="1" TabIndex="8" ValueChanged="intelligenceDots_ValueChanged"/>
@@ -103,7 +83,7 @@
         <Slider x:Name="subterfugeDots" HorizontalAlignment="Left" Margin="407,455,0,0" VerticalAlignment="Top" Maximum="5" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="80" TickPlacement="TopLeft" TabIndex="40" ValueChanged="subterfugeDots_ValueChanged"/>
         <Label Content="Subterfuge" HorizontalAlignment="Left" Margin="331,444,0,0" VerticalAlignment="Top"/>
         <Border Height="200" Width="290" BorderThickness="1" BorderBrush="Black" Margin="492,12,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-            <Image x:Name="portraitBox" Source="vampire silhouette.png"/>
+            <Image x:Name="portraitBox" Source="mortal silhouette.png"/>
         </Border>
         <Label Content="Concept" HorizontalAlignment="Left" Margin="492,212,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="conceptField" HorizontalAlignment="Left" Height="23" Margin="492,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="205" TabIndex="41" TextChanged="conceptField_TextChanged"/>
@@ -111,9 +91,7 @@
         <ScrollViewer HorizontalAlignment="Left" Height="188" Margin="492,289,0,0" VerticalAlignment="Top" Width="290">
             <TextBox x:Name="biographyField" AcceptsReturn="True" TextWrapping="Wrap" TabIndex="42" TextChanged="biographyField_TextChanged"/>
         </ScrollViewer>
-        <Label Content="Blood Potency" HorizontalAlignment="Left" Margin="385,4,0,0" VerticalAlignment="Top"/>
-        <Label Content="Humanity" HorizontalAlignment="Left" Margin="385,54,0,0" VerticalAlignment="Top"/>
-        <Slider x:Name="potencyDots" HorizontalAlignment="Left" Margin="391,30,0,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="96" TickPlacement="TopLeft" Minimum="1" TabIndex="3" ValueChanged="potencyDots_ValueChanged"/>
+        <Label Content="Integrity" HorizontalAlignment="Left" Margin="385,54,0,0" VerticalAlignment="Top"/>
         <Slider x:Name="humanityDots" HorizontalAlignment="Left" Margin="391,80,0,0" VerticalAlignment="Top" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" Width="96" TickPlacement="TopLeft" Minimum="1" TabIndex="7" ValueChanged="humanityDots_ValueChanged"/>
         <Button x:Name="closeButton" Content="Save &amp; Close" HorizontalAlignment="Left" Margin="702,238,0,0" VerticalAlignment="Top" Width="80" Click="closeButton_Click" TabIndex="43" IsDefault="True"/>
 

@@ -5,14 +5,36 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Coterie.Backend {
-    class Vampire : Character {
+    [Serializable]
+    public class Vampire : Character {
+        private Clan clan;
+        private Coven covenant;
 
-        public Vampire() : base() {
-            
+        public Clan Clan {
+            get {
+                return clan;
+            }
+            set {
+                clan = value;
+            }
+        }
+        public Coven Covenant {
+            get {
+                return covenant;
+            }
+            set {
+                covenant = value;
+            }
         }
 
-        public override string ToString() {
-            return attributes[1].name;
+        public Vampire() : base() {
+            splat = "vampire";
+
+            potency = new Trait("Blood Potency") { Dots = 1 };
+            humanity = new Trait("Humanity") { Dots = 7 };
+
+            clan = Clan.None;
+            covenant = Coven.None;
         }
     }
 }
