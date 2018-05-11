@@ -32,6 +32,9 @@ namespace Coterie {
         }
 
         public MainWindow() {
+            int clanLength = Enum.GetValues(typeof(Clan)).Length;
+            int covenLength = Enum.GetValues(typeof(Coven)).Length;
+
             city = new City();
 
             InitializeComponent();
@@ -45,11 +48,11 @@ namespace Coterie {
 
             city.Factions.Add(new Faction("City"));
 
-            for (var i = 1; i < (int)Clan.Length; i++) {
+            for (var i = 1; i < clanLength; i++) {
                 city.Factions.Add(new Faction(((Clan)i).ToString()));
             }
 
-            for (var i = 1; i < (int)Coven.Length; i++) {
+            for (var i = 1; i < covenLength; i++) {
                 city.Factions.Add(new Faction(((Coven)i).ToString()));
             }
 

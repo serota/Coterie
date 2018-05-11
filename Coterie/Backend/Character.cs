@@ -102,6 +102,8 @@ namespace Coterie.Backend {
 
         protected Character() : base() {
             string traitName = "";
+            int attrLength = Enum.GetValues(typeof(Attr)).Length;
+            int skilLength = Enum.GetValues(typeof(Skil)).Length;
 
             name = "";
             player = "";
@@ -109,15 +111,15 @@ namespace Coterie.Backend {
             concept = "";
             biography = "";
 
-            attributes = new Trait[(int)Attr.Length];
-            skills = new Trait[(int)Skil.Length];
+            attributes = new Trait[attrLength];
+            skills = new Trait[skilLength];
 
-            for (var i = 0; i < (int)Attr.Length; i++) {
+            for (var i = 0; i < attributes.Length; i++) {
                 traitName = ((Attr)i).ToString();
                 attributes[i] = new Trait(traitName) { Dots = 1 };
             }
 
-            for (var i = 0; i < (int)Skil.Length; i++) {
+            for (var i = 0; i < skills.Length; i++) {
                 traitName = ((Skil)i).ToString();
                 skills[i] = new Trait(traitName);
             }

@@ -50,9 +50,7 @@ namespace Coterie.Backend {
 
         Presence,
         Manipulation,
-        Composure,
-
-        Length
+        Composure
     }
 
     enum Skil {
@@ -81,8 +79,6 @@ namespace Coterie.Backend {
         Persuasion,
         Socialize,
         Streetwise,
-        Subterfuge,
-
-        Length
+        Subterfuge
     }
 }

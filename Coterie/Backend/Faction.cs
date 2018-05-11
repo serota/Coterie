@@ -43,9 +43,7 @@ namespace Coterie.Backend {
         Gangrel,
         Mekhet,
         Nosferatu,
-        Ventrue,
-
-        Length
+        Ventrue
     }
 
     public enum Coven {
@@ -54,8 +52,6 @@ namespace Coterie.Backend {
         Crones,
         Invictus,
         Lancea,
-        Ordo,
-
-        Length
+        Ordo
     }
 }
